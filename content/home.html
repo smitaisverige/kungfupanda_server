@@ -1,0 +1,110 @@
+<h2>Welcome!</h2>
+<p>
+  This website is about the Kung Fu Panda movie series.(One of my favourite
+  movie series!)
+</p>
+<p>Use the navigation to explore movies and characters and the language.</p>
+
+<div>
+  <h2>How to use this website</h2>
+  <!--instructions -->
+  <p>
+    This website is a Node.js server demonstrating multiple routes, URL queries,
+    external files, and data-driven content.
+  </p>
+
+  <h3>Available Routes</h3>
+  <ul>
+    <li><strong>Home:</strong> <code>http://localhost:5055/</code></li>
+    <!--external html file-->
+    <li><strong>Kung Fu Panda Main:</strong> <code>/kfp</code></li>
+    <li><strong>Movies List:</strong> <code>/kfp/movies</code></li>
+    <!--array and dynamic data-->
+    <li><strong>Characters:</strong> <code>/kfp/characters</code></li>
+    <!--external txt file-->
+    <li><strong>About:</strong> <code>/kfp/about</code></li>
+  </ul>
+
+  <h3>Using Queries</h3>
+  <p>
+    You can pass two queries in the URL to display specific movie information
+    and extra content:
+  </p>
+
+  <ol>
+    <li>
+      <strong>HTML rendered directly in JavaScript:</strong><br />
+      The routes generate HTML directly using <code>res.write()</code>. Examples
+      include:
+      <ul>
+        <li><code>/kfp</code> - main Kung Fu Panda page</li>
+        <li><code>/kfp/about</code> - about page</li>
+      </ul>
+    </li>
+    <br />
+    <li>
+      <strong>Content loaded from external files:</strong><br />
+      External <code>.txt</code> and <code>.html</code> files are loaded using
+      <code>fs.readFile()</code>. Examples include:
+      <ul>
+        <li>
+          <code>/kfp/characters</code> - loads content from
+          <code>characters.txt</code>
+        </li>
+        <li><code>/</code> - loads content from <code>home.html</code></li>
+      </ul>
+    </li>
+    <br />
+    <li>
+      <strong>URL query parameters:</strong><br />
+      The application reads query parameters from the URL to display different
+      content. There are two queries:
+      <ul>
+        <li><code>movie</code> - selects a specific movie</li>
+        <li>
+          <code>lang</code> - language code; default is English
+          (<code>eng</code>)
+        </li>
+      </ul>
+      <p>
+        Extra info ("English subtitles available") is only shown when
+        <code>lang</code> is NOT English.
+      </p>
+      <br />
+      <strong>Example clickable links:</strong>
+      <ul>
+        <li>
+          <a href="/kfp/movies?movie=kfp1"
+            >View Kung Fu Panda 1 (default English) single querry</a
+          >
+        </li>
+        <li>
+          <a href="/kfp/movies?movie=kfp2&lang=eng"
+            >View Kung Fu Panda 2 (English)</a
+          >
+        </li>
+        <li>
+          <a href="/kfp/movies?movie=kfp3&lang=fr"
+            >View Kung Fu Panda 3 (French)</a
+          >
+        </li>
+        <li>
+          <a href="/kfp/movies?movie=kfp4&lang=sp"
+            >View Kung Fu Panda 4 (Spanish)</a
+          >
+        </li>
+      </ul>
+    </li>
+  </ol>
+
+  <p>
+    The Kung Fu Panda route uses data loaded from an external JavaScript file
+    and displays object information dynamically based on the queries.
+  </p>
+
+  <p>
+    To test the extra info feature, click a movie link and manually change the
+    <code>lang</code> query in the URL to any value other than <code>eng</code>.
+    You will see the extra info appear.
+  </p>
+</div>
